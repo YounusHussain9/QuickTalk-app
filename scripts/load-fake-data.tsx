@@ -1,35 +1,20 @@
-import { Client } from "pg";
-import { loadEnvConfig } from "@next/env";
 import { faker } from "@faker-js/faker";
-import bcrypt from 'bcrypt'
-
-// laodConfig does is that it will take what is in this dot env dot  file and load it in as env
-const projectDir = process.cwd();
-loadEnvConfig(projectDir);
+import bcrypt from "bcrypt";
+import { getClient } from "@/db";
 
 const loadFakeData = async (num_of_users: number) => {
-  console.log(num_of_users);
-  // console.log(`total number of users are ${num_of_users}`);
-
-  const client = new Client({
-    user: process.env.POSTGRES_USER,
-    host: process.env.POSTGRES_HOST,
-    database: process.env.POSTGRES_NAME,
-    password: process.env.POSTGRES_PASSWORD,
-    port: parseInt(process.env.POSTGRES_PORT!),
-  });
+  const client = await getClient();
 
   // for make connection with postgres
   await client.connect();
   try {
     await client.query("begin");
     for (let i = 0; i < num_of_users; i++) {
-
       const saltRounds = 10;
-      const hashPassword = await bcrypt.hash("string123", saltRounds)
+      const hashPassword = await bcrypt.hash("string123", saltRounds);
       await client.query(
         "insert into public.users (username, password, avatar) values ($1, $2, $3)",
-        [faker.internet.userName(),hashPassword, faker.image.avatar()]
+        [faker.internet.userName(), hashPassword, faker.image.avatar()]
       );
     }
 
