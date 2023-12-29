@@ -1,6 +1,6 @@
 --  this is the first migration file and this is the up migration , which means we are moving forward
 
--- if not exist sci text it will add this extension to our database so we can use this data type 
+-- if not exist sci text it will add this extension to our database so we can use this data type its provide case-insensitive character string type
 create extension if not exists citext;
 
 
@@ -22,6 +22,7 @@ updated_at timestamp default now()
 create table if not exists public.posts (
     id bigserial primary key,
     user_id bigint references public.users (id),
+    content text,
     created_at timestamp default now(),
     updated_at timestamp default now() 
 );
