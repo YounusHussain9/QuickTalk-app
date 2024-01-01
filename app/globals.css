@@ -25,5 +25,5 @@ body {
     )
     rgb(var(--background-start-rgb)); */
     color: white;
-    background-color: rgb(250, 232, 232);
+    background-color: rgb(30, 30, 30);
 }

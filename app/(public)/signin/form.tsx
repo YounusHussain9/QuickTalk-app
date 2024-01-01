@@ -41,7 +41,7 @@ const Form = () => {
             placeholder="Username"
             value={username}
             required
-            className="p-3 rounded outline-none"
+            className="p-3 rounded outline-none text-black"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -53,11 +53,11 @@ const Form = () => {
             placeholder="Password"
             value={password}
             required
-            className="p-3 rounded outline-none"
+            className="p-3 rounded outline-none text-black"
 
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className="mt-3 p-3 bg-slate-900 rounded-lg">Login</button>
       </div>
     </form>
   );
