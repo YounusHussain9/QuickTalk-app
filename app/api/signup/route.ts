@@ -11,7 +11,7 @@ export const POST = async (request: Request) => {
 
   if (res.rowCount !== null && res.rowCount > 0) {
     return NextResponse.json({ error: "User already exists" }, { status: 400 });
-}
+  }
   const saltRounds = 10;
   const hashPassword = await bcrypt.hash(json.password, saltRounds);
 
