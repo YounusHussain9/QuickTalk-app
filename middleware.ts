@@ -26,8 +26,8 @@ export async function middleware(request: NextRequest) {
   }
 }
 
-
 //wild card characther match every path
-export const config ={
-    matcher : "/:path*",
-}
+export const config = {
+  matcher: "/:path*",
+};
+jwtVerify
