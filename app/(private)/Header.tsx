@@ -8,7 +8,7 @@ const Header = () => {
   if (error) return <div> failed to load</div>;
   if (isLoading) return <div>loading</div>;
   return (
-    <header className="flex justify-between p-5 bg-slate-800 items-center">
+    <header className="flex justify-between p-5 bg-slate-800 items-center w-full">
       <div>
         <h2 className="font-serif text-lg">QuickTalk.</h2>
       </div>
