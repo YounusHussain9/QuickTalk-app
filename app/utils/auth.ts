@@ -8,4 +8,3 @@ export async function getJWTPayload() {
   const { payload, protectedHeader } = await jwtVerify(token?.value!, secret);
   return payload
 }
-wewefe
