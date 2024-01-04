@@ -1,0 +1,34 @@
+.user-profile {
+    position: relative;
+    max-width: 257.09px;
+    min-height: 322px;
+    max-height: 322px;
+    margin-top: 40px; /* Adjusted to make space for the sticky image */
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    /* background: white; */
+    text-align: center;
+    padding: 30px 16px 0px;
+
+  }
+  
+  .user-photo-container {
+    position: absolute;
+    top: -40px; /* Half the height of the image to make it stick out */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: 3px solid white; /* Adjust border color to match background */
+    background: white;
+    border: 2px solid black;
+  }
+  
+  .user-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+  
+  /* Rest of the CSS remains the same */
+  
