@@ -1,8 +1,12 @@
 import React from 'react'
+import FeedContainer from './feed-container'
 
 const Feed = () => {
   return (
-    <div>feed</div>
+    <main>
+      <h2>Feed</h2>
+      <FeedContainer />
+    </main>
   )
 }
 
