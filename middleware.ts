@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  const authenticatedApiRoute = [pathname.startsWith("/api/users")];
+  const authenticatedApiRoute = [pathname.startsWith("/api/users"), pathname.startsWith('/api/posts')];
   if (authenticatedApiRoute.includes(true)) {
     const cookie = request.cookies.get("jwt-token");
 
@@ -19,8 +19,8 @@ export async function middleware(request: NextRequest) {
       await jwtVerify(cookie.value, secret);
     } catch (error) {
       return NextResponse.json(
-        { msg: "internal server error" },
-        { status: 500 }
+        { msg: "unauthenticated" },
+        { status: 401 }
       );
     }
   }
