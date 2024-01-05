@@ -1,9 +1,21 @@
+'use client'
 import React from 'react'
+import useSWR from 'swr'
+import Form from './Form/Form';
+import PostContainer from '@/app/components/Post/post-container';
 
-const pages = () => {
+const Profile = () => {
+ const {data, isLoading, error} = useSWR("/api/users/profile");
+
+ if(error) return <div>failed to fetch</div>
+ if(isLoading) return <div>loading ...</div>
   return (
-    <div>Profile</div>
+    <div>
+      <h2>Profile</h2>
+      <Form />
+      <PostContainer username={data.data.username} /> 
+    </div>
   )
 }
 
-export default pages
+export default Profile
